@@ -4,9 +4,10 @@
 <h1>Create</h1>
 <h2>{{ error }}</h2>
 
-<form class="" action="" method="POST">
+<form  method="POST">
+  {% csrf_token %} 
 {{ form.as_p }}
-{% csrf_token %}
+
 <button type="submit" name="button">create  </button>
 </form>
 {% endblock %}
