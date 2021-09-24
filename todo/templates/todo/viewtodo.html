@@ -2,8 +2,25 @@
 
 
 {%  block content %}
-
+{{ error }}
 {{ todo.title  }}
 
+<form  method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+  <button type="submit" name="button">Save</button>
+</form>
+
+<form  method="POST" action="{% url 'completetodo' todo.id %}">
+
+    {% csrf_token %}
+  <button type="submit">complete</button>
+</form>
+
+<form  method="POST" action="{% url 'deletetodo' todo.id %}">
+
+    {% csrf_token %}
+  <button type="submit">Delete</button>
+</form>
 
 {% endblock %}
